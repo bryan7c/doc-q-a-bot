@@ -35,7 +35,7 @@ export const Dashboard = () => {
           Dashboard de Performance
         </h1>
         <p className="text-muted-foreground">
-          Métricas e análises do sistema RAG
+          Métricas e análises do sistema IA llow chat
         </p>
       </div>
 

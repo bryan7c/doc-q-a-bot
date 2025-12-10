@@ -55,7 +55,7 @@ export const ChatMessage = ({ message }: ChatMessageProps) => {
         }}
       >
         <div className="text-sm text-muted-foreground">
-          {isAssistant ? 'Assistente RAG' : 'Você'}
+          {isAssistant ? 'IA llow' : 'Você'}
         </div>
         
         <div className="text-foreground leading-relaxed whitespace-pre-wrap">

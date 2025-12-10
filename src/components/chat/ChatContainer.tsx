@@ -78,11 +78,11 @@ export const ChatContainer = () => {
       {/* Header */}
       <div className="flex items-center justify-between p-4 border-b border-border">
         <div className="flex items-center gap-3">
-          <div className="w-10 h-10 rounded-lg bg-primary/20 flex items-center justify-center">
-            <MessageSquare className="w-5 h-5 text-primary" />
+          <div className="w-10 h-10 rounded-lg bg-yellow-500/20 flex items-center justify-center">
+            <MessageSquare className="w-5 h-5 text-yellow-600" />
           </div>
           <div>
-            <h2 className="font-semibold text-foreground">Chat RAG</h2>
+            <h2 className="font-semibold text-foreground">IA llow</h2>
             <p className="text-xs text-muted-foreground">
               Pergunte sobre a documentação
             </p>
@@ -102,8 +102,8 @@ export const ChatContainer = () => {
       <div className="flex-1 overflow-y-auto p-4 space-y-4">
         {messages.length === 0 ? (
           <div className="flex flex-col items-center justify-center h-full text-center space-y-4">
-            <div className="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center animate-pulse-slow">
-              <MessageSquare className="w-8 h-8 text-primary" />
+            <div className="w-16 h-16 rounded-2xl bg-yellow-500/10 flex items-center justify-center animate-pulse-slow">
+              <MessageSquare className="w-8 h-8 text-yellow-600" />
             </div>
             <div>
               <h3 className="text-lg font-medium text-foreground mb-1">
@@ -135,12 +135,12 @@ export const ChatContainer = () => {
             ))}
             {isLoading && (
               <div className="flex gap-3 p-4 bg-card/50 rounded-lg animate-pulse">
-                <div className="w-8 h-8 rounded-lg bg-primary/20 flex items-center justify-center">
-                  <div className="w-4 h-4 border-2 border-primary border-t-transparent rounded-full animate-spin" />
+                <div className="w-8 h-8 rounded-lg bg-yellow-500/20 flex items-center justify-center">
+                  <div className="w-4 h-4 border-2 border-yellow-600 border-t-transparent rounded-full animate-spin" />
                 </div>
                 <div className="flex-1">
                   <div className="text-sm text-muted-foreground mb-2">
-                    Assistente RAG
+                    IA llow
                   </div>
                   <div className="space-y-2">
                     <div className="h-4 bg-secondary rounded w-3/4" />

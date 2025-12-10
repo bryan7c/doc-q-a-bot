@@ -38,7 +38,7 @@ export const Sidebar = ({ activeView, onViewChange }: SidebarProps) => {
             className={cn(
               'w-full flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-medium transition-all duration-200',
               activeView === item.id
-                ? 'bg-primary/10 text-primary'
+                ? 'bg-yellow-500/10 text-yellow-600'
                 : 'text-muted-foreground hover:bg-secondary hover:text-foreground'
             )}
           >
