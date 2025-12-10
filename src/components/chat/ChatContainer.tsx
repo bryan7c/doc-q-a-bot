@@ -1,67 +1,14 @@
 import { useState, useRef, useEffect } from 'react';
 import { useChatStore } from '@/hooks/useChatStore';
+import { useAnalytics } from '@/hooks/useAnalytics';
 import { ChatMessage } from './ChatMessage';
 import { ChatInput } from './ChatInput';
 import { MessageSquare, Trash2 } from 'lucide-react';
-
-// Simulated RAG responses
-const simulatedResponses = [
-  {
-    content: `Para configurar a autenticação na sua aplicação, siga estes passos:
-
-1. **Instale as dependências necessárias:**
-   \`\`\`bash
-   npm install @auth/core @auth/providers
-   \`\`\`
-
-2. **Configure o provider de autenticação** no arquivo \`auth.config.ts\`
-
-3. **Adicione as variáveis de ambiente** necessárias no seu \`.env\`
-
-4. **Implemente o middleware** para proteger suas rotas
-
-A documentação completa está disponível na seção "Autenticação" do guia.`,
-    sources: ['auth-guide.md', 'getting-started.md'],
-    relevanceScore: 92,
-  },
-  {
-    content: `Os principais endpoints da API estão organizados da seguinte forma:
-
-**Usuários:**
-- \`GET /api/users\` - Lista todos os usuários
-- \`POST /api/users\` - Cria um novo usuário
-- \`PUT /api/users/:id\` - Atualiza um usuário
-
-**Autenticação:**
-- \`POST /api/auth/login\` - Realiza login
-- \`POST /api/auth/logout\` - Realiza logout
-- \`POST /api/auth/refresh\` - Atualiza o token
-
-Todos os endpoints requerem autenticação, exceto \`/api/auth/login\`.`,
-    sources: ['api-reference.md', 'endpoints.md'],
-    relevanceScore: 88,
-  },
-  {
-    content: `O processo de deploy pode ser realizado de várias formas:
-
-**Deploy Automático (Recomendado):**
-Configure CI/CD com GitHub Actions para deploy automático a cada push na branch main.
-
-**Deploy Manual:**
-1. Execute \`npm run build\` para gerar o build de produção
-2. Configure as variáveis de ambiente no servidor
-3. Execute \`npm start\` para iniciar a aplicação
-
-**Plataformas suportadas:** Vercel, Railway, AWS, Google Cloud
-
-Consulte o guia de deploy para configurações específicas de cada plataforma.`,
-    sources: ['deploy-guide.md', 'production.md'],
-    relevanceScore: 95,
-  },
-];
+import { fetchAnswer, APIError } from '@/services/api';
 
 export const ChatContainer = () => {
   const { messages, addMessage, clearMessages } = useChatStore();
+  const { recordQuery } = useAnalytics();
   const [isLoading, setIsLoading] = useState(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
@@ -74,23 +21,56 @@ export const ChatContainer = () => {
   }, [messages]);
 
   const handleSendMessage = async (content: string) => {
+    const startTime = performance.now();
+    
     addMessage({ role: 'user', content });
     setIsLoading(true);
 
-    // Simulate RAG processing
-    await new Promise((resolve) => setTimeout(resolve, 1500));
+    try {
+      const response = await fetchAnswer(content);
+      const endTime = performance.now();
+      const responseTime = (endTime - startTime) / 1000; // Convert to seconds
 
-    const randomResponse =
-      simulatedResponses[Math.floor(Math.random() * simulatedResponses.length)];
+      // Calculate relevance score based on chunks_count (higher chunks = more relevant)
+      const relevanceScore = Math.min(95, 70 + (response.chunks_count * 5));
 
-    addMessage({
-      role: 'assistant',
-      content: randomResponse.content,
-      sources: randomResponse.sources,
-      relevanceScore: randomResponse.relevanceScore,
-    });
+      addMessage({
+        role: 'assistant',
+        content: response.generated_answer,
+        sources: [`${response.chunks_count} chunks encontrados`],
+        relevanceScore: relevanceScore,
+        userQuery: content,
+      });
 
-    setIsLoading(false);
+      // Record analytics
+      recordQuery(content, responseTime, relevanceScore);
+    } catch (error) {
+      const endTime = performance.now();
+      const responseTime = (endTime - startTime) / 1000;
+
+      let errorMessage = 'Desculpe, ocorreu um erro ao processar sua pergunta.';
+      
+      if (error instanceof APIError) {
+        if (error.message.includes('Network error')) {
+          errorMessage = `**Erro de Conexão**\n\nNão foi possível conectar ao servidor da API em \`localhost:8080\`.\n\nVerifique se:\n- O servidor da API está rodando\n- A porta 8080 está acessível\n\n\`${error.message}\``;
+        } else {
+          errorMessage = `**Erro ao buscar resposta**\n\n${error.message}`;
+        }
+      }
+
+      addMessage({
+        role: 'assistant',
+        content: errorMessage,
+        sources: ['error'],
+        relevanceScore: 0,
+        userQuery: content,
+      });
+
+      // Record failed query with 0 score
+      recordQuery(content, responseTime, 0);
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   return (

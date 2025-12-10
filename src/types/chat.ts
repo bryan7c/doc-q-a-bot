@@ -6,6 +6,7 @@ export interface Message {
   rating?: 'positive' | 'negative' | null;
   relevanceScore?: number;
   sources?: string[];
+  userQuery?: string; // Track the original user question for analytics
 }
 
 export interface ChatMetrics {

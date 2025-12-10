@@ -32,6 +32,18 @@
   /* Focus */
   --color-focus: #FFA43A;
   
+  /* Success */
+  --color-success-default: #22C55E;
+  --color-success-foreground: #FFFFFF;
+  
+  /* Destructive / Error */
+  --color-destructive-default: #EF4444;
+  --color-destructive-foreground: #FFFFFF;
+  
+  /* Accent / Teal */
+  --color-accent-default: #14B8A6;
+  --color-accent-foreground: #FFFFFF;
+  
   
   /* ===== SPACING TOKENS ===== */
   

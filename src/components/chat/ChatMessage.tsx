@@ -1,6 +1,7 @@
 import { ThumbsUp, ThumbsDown, FileText, Bot, User } from 'lucide-react';
 import { Message } from '@/types/chat';
 import { useChatStore } from '@/hooks/useChatStore';
+import { useAnalytics } from '@/hooks/useAnalytics';
 import { cn } from '@/lib/utils';
 
 interface ChatMessageProps {
@@ -9,11 +10,18 @@ interface ChatMessageProps {
 
 export const ChatMessage = ({ message }: ChatMessageProps) => {
   const { rateMessage } = useChatStore();
+  const { recordRating } = useAnalytics();
   const isAssistant = message.role === 'assistant';
 
   const handleRate = (rating: 'positive' | 'negative') => {
     if (message.rating === rating) return;
+    
     rateMessage(message.id, rating);
+    
+    // Record rating in analytics using the original user query
+    if (message.role === 'assistant' && message.userQuery) {
+      recordRating(message.userQuery, rating);
+    }
   };
 
   return (

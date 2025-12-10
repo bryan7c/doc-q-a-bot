@@ -5,14 +5,18 @@ import {
   TrendingUp,
   Activity,
 } from 'lucide-react';
-import { useChatStore } from '@/hooks/useChatStore';
+import { useAnalytics } from '@/hooks/useAnalytics';
 import { MetricCard } from './MetricCard';
 import { PerformanceChart } from './PerformanceChart';
 import { TopQueriesTable } from './TopQueriesTable';
 import { RatingDistribution } from './RatingDistribution';
 
 export const Dashboard = () => {
-  const { metrics, dailyMetrics, topQueries } = useChatStore();
+  const { getMetrics, getDailyMetrics, getTopQueries } = useAnalytics();
+  
+  const metrics = getMetrics();
+  const dailyMetrics = getDailyMetrics();
+  const topQueries = getTopQueries();
 
   const satisfactionRate =
     metrics.positiveRatings + metrics.negativeRatings > 0

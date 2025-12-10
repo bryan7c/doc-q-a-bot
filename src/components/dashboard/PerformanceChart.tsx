@@ -16,6 +16,14 @@ interface PerformanceChartProps {
 }
 
 export const PerformanceChart = ({ data }: PerformanceChartProps) => {
+  // Get CSS variables
+  const accentColor = getComputedStyle(document.documentElement).getPropertyValue('--color-accent-default').trim() || '#14B8A6';
+  const successColor = getComputedStyle(document.documentElement).getPropertyValue('--color-success-default').trim() || '#22C55E';
+  const borderColor = getComputedStyle(document.documentElement).getPropertyValue('--color-surface-outline').trim() || '#DDDCE2';
+  const mutedForeground = getComputedStyle(document.documentElement).getPropertyValue('--color-surface-on-default-placeholder').trim() || '#66636B';
+  const cardBg = getComputedStyle(document.documentElement).getPropertyValue('--color-surface-default').trim() || '#FFFFFF';
+  const foregroundColor = getComputedStyle(document.documentElement).getPropertyValue('--color-surface-on-default').trim() || '#141316';
+
   return (
     <div className="bg-card border border-border rounded-xl p-5 animate-fade-in">
       <div className="mb-4">
@@ -31,29 +39,29 @@ export const PerformanceChart = ({ data }: PerformanceChartProps) => {
           <AreaChart data={data}>
             <defs>
               <linearGradient id="colorQuestions" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="5%" stopColor="hsl(175, 80%, 45%)" stopOpacity={0.3} />
-                <stop offset="95%" stopColor="hsl(175, 80%, 45%)" stopOpacity={0} />
+                <stop offset="5%" stopColor={accentColor} stopOpacity={0.3} />
+                <stop offset="95%" stopColor={accentColor} stopOpacity={0} />
               </linearGradient>
               <linearGradient id="colorRate" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="5%" stopColor="hsl(142, 76%, 36%)" stopOpacity={0.3} />
-                <stop offset="95%" stopColor="hsl(142, 76%, 36%)" stopOpacity={0} />
+                <stop offset="5%" stopColor={successColor} stopOpacity={0.3} />
+                <stop offset="95%" stopColor={successColor} stopOpacity={0} />
               </linearGradient>
             </defs>
             <CartesianGrid
               strokeDasharray="3 3"
-              stroke="hsl(222, 30%, 18%)"
+              stroke={borderColor}
               vertical={false}
             />
             <XAxis
               dataKey="date"
-              stroke="hsl(215, 20%, 55%)"
+              stroke={mutedForeground}
               fontSize={12}
               tickLine={false}
               axisLine={false}
             />
             <YAxis
               yAxisId="left"
-              stroke="hsl(215, 20%, 55%)"
+              stroke={mutedForeground}
               fontSize={12}
               tickLine={false}
               axisLine={false}
@@ -61,7 +69,7 @@ export const PerformanceChart = ({ data }: PerformanceChartProps) => {
             <YAxis
               yAxisId="right"
               orientation="right"
-              stroke="hsl(215, 20%, 55%)"
+              stroke={mutedForeground}
               fontSize={12}
               tickLine={false}
               axisLine={false}
@@ -70,18 +78,18 @@ export const PerformanceChart = ({ data }: PerformanceChartProps) => {
             />
             <Tooltip
               contentStyle={{
-                backgroundColor: 'hsl(222, 47%, 8%)',
-                border: '1px solid hsl(222, 30%, 18%)',
+                backgroundColor: cardBg,
+                border: `1px solid ${borderColor}`,
                 borderRadius: '8px',
-                color: 'hsl(210, 40%, 98%)',
+                color: foregroundColor,
               }}
-              labelStyle={{ color: 'hsl(215, 20%, 55%)' }}
+              labelStyle={{ color: mutedForeground }}
             />
             <Area
               yAxisId="left"
               type="monotone"
               dataKey="questions"
-              stroke="hsl(175, 80%, 45%)"
+              stroke={accentColor}
               strokeWidth={2}
               fill="url(#colorQuestions)"
               name="Perguntas"
@@ -90,7 +98,7 @@ export const PerformanceChart = ({ data }: PerformanceChartProps) => {
               yAxisId="right"
               type="monotone"
               dataKey="positiveRate"
-              stroke="hsl(142, 76%, 36%)"
+              stroke={successColor}
               strokeWidth={2}
               fill="url(#colorRate)"
               name="Taxa de Aprovação (%)"

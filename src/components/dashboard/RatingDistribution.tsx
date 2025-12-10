@@ -7,10 +7,17 @@ interface RatingDistributionProps {
 }
 
 export const RatingDistribution = ({ positive, negative }: RatingDistributionProps) => {
+  // Get CSS variables
+  const successColor = getComputedStyle(document.documentElement).getPropertyValue('--color-success-default').trim() || '#22C55E';
+  const destructiveColor = getComputedStyle(document.documentElement).getPropertyValue('--color-destructive-default').trim() || '#EF4444';
+  const borderColor = getComputedStyle(document.documentElement).getPropertyValue('--color-surface-outline').trim() || '#DDDCE2';
+  const cardBg = getComputedStyle(document.documentElement).getPropertyValue('--color-surface-default').trim() || '#FFFFFF';
+  const foregroundColor = getComputedStyle(document.documentElement).getPropertyValue('--color-surface-on-default').trim() || '#141316';
+  
   const total = positive + negative;
   const data = [
-    { name: 'Positivas', value: positive, color: 'hsl(142, 76%, 36%)' },
-    { name: 'Negativas', value: negative, color: 'hsl(0, 72%, 51%)' },
+    { name: 'Positivas', value: positive, color: successColor },
+    { name: 'Negativas', value: negative, color: destructiveColor },
   ];
 
   const positivePercent = total > 0 ? ((positive / total) * 100).toFixed(1) : 0;
@@ -45,10 +52,10 @@ export const RatingDistribution = ({ positive, negative }: RatingDistributionPro
               </Pie>
               <Tooltip
                 contentStyle={{
-                  backgroundColor: 'hsl(222, 47%, 8%)',
-                  border: '1px solid hsl(222, 30%, 18%)',
+                  backgroundColor: cardBg,
+                  border: `1px solid ${borderColor}`,
                   borderRadius: '8px',
-                  color: 'hsl(210, 40%, 98%)',
+                  color: foregroundColor,
                 }}
               />
             </PieChart>

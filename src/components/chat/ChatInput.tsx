@@ -30,7 +30,6 @@ export const ChatInput = ({ onSend, isLoading }: ChatInputProps) => {
         className="flex items-center"
         style={{
           borderRadius: 'var(--radius-input)',
-          border: 'var(--stroke-input) solid var(--color-surface-outline)',
           background: 'var(--color-surface-default)',
           height: '45px',
           padding: '0 var(--spacing-padding-m)',

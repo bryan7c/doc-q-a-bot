@@ -49,7 +49,7 @@ export const Sidebar = ({ activeView, onViewChange }: SidebarProps) => {
       </nav>
 
       {/* Footer */}
-      <div className="p-4 border-t border-border">
+      {/* <div className="p-4 border-t border-border">
         <div className="p-3 rounded-lg bg-secondary/50">
           <div className="flex items-center gap-2 mb-2">
             <FileText className="w-4 h-4 text-primary" />
@@ -67,7 +67,7 @@ export const Sidebar = ({ activeView, onViewChange }: SidebarProps) => {
             />
           </div>
         </div>
-      </div>
+      </div> */}
     </aside>
   );
 };
