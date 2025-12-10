@@ -26,13 +26,24 @@ export const ChatInput = ({ onSend, isLoading }: ChatInputProps) => {
 
   return (
     <div className="glass-panel rounded-xl p-2">
-      <div className="flex items-end gap-2">
+      <div
+        className="flex items-center"
+        style={{
+          borderRadius: 'var(--radius-input)',
+          border: 'var(--stroke-input) solid var(--color-surface-outline)',
+          background: 'var(--color-surface-default)',
+          height: '45px',
+          padding: '0 var(--spacing-padding-m)',
+          gap: 'var(--spacing-gap-xs)',
+        }}
+      >
         <textarea
           value={input}
           onChange={(e) => setInput(e.target.value)}
           onKeyDown={handleKeyDown}
           placeholder="Faça uma pergunta sobre a documentação..."
-          className="flex-1 bg-transparent border-0 resize-none focus:outline-none focus:ring-0 text-foreground placeholder:text-muted-foreground min-h-[44px] max-h-[200px] py-3 px-3"
+          aria-label="Mensagem de chat"
+          className="flex-1 bg-transparent border-0 resize-none focus:outline-none focus:ring-0 text-foreground placeholder:text-muted-foreground h-full py-0 px-0"
           rows={1}
           disabled={isLoading}
         />

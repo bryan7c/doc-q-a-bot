@@ -1,0 +1,199 @@
+/**
+ * Design System Tokens
+ * Auto-generated from Figma tokens
+ * Modes: Light theme / Desk breakpoint
+ */
+
+:root {
+  /* ===== COLOR TOKENS ===== */
+  
+  /* Surface */
+  --color-surface-default: #FFFFFF;
+  --color-surface-on-default: #141316;
+  --color-surface-on-default-variant: #3A383E;
+  --color-surface-on-default-placeholder: #66636B;
+  --color-surface-muted: #F5F6F7;
+  --color-surface-on-muted: #141316;
+  --color-surface-on-muted-variant: #3A383E;
+  --color-surface-inverse: #141316;
+  --color-surface-outline: #DDDCE2;
+  
+  /* Primary */
+  --color-primary-default: #6200FF;
+  --color-primary-on-default: #FFFFFF;
+  --color-primary-muted: #E9E9FF;
+  --color-primary-on-muted: #29008A;
+  --color-primary-inverse: #A4ACFF;
+  
+  /* Disabled */
+  --color-disabled-default: #BBBBC1;
+  --color-disabled-on-default: #66636B;
+  
+  /* Focus */
+  --color-focus: #FFA43A;
+  
+  
+  /* ===== SPACING TOKENS ===== */
+  
+  /* Padding */
+  --spacing-padding-none: 0px;
+  --spacing-padding-xs: 4px;
+  --spacing-padding-s: 8px;
+  --spacing-padding-m: 16px;
+  --spacing-padding-l: 24px;
+  --spacing-padding-xl: 32px;
+  --spacing-padding-2xl: 40px;
+  --spacing-padding-modal-l: 40px;
+  --spacing-padding-modal-m: 24px;
+  --spacing-padding-card: 24px;
+  --spacing-padding-button-no-icon: 20px;
+  --spacing-padding-button-icon: 12px;
+  --spacing-padding-button-vert: 12px;
+  --spacing-padding-check-radio: 2px;
+  
+  /* Margin */
+  --spacing-margin-none: 0px;
+  --spacing-margin-vertical-s: 48px;
+  --spacing-margin-vertical-m: 64px;
+  --spacing-margin-vertical-l: 80px;
+  --spacing-margin-horizontal-sidebar: 40px;
+  --spacing-margin-horizontal: 80px;
+  --spacing-margin-horizontal-article: 140px;
+  
+  /* Gap */
+  --spacing-gap-none: 0px;
+  --spacing-gap-4xs: 1px;
+  --spacing-gap-3xs: 2px;
+  --spacing-gap-2xs: 4px;
+  --spacing-gap-xs: 8px;
+  --spacing-gap-s: 12px;
+  --spacing-gap-m: 16px;
+  --spacing-gap-l: 20px;
+  --spacing-gap-xl: 24px;
+  --spacing-gap-2xl: 32px;
+  --spacing-gap-3xl: 40px;
+  --spacing-gap-4xl: 48px;
+  --spacing-gap-gutter: 24px;
+  --spacing-gap-section: 80px;
+  
+  
+  /* ===== RADIUS TOKENS ===== */
+  
+  --radius-sharp: 0px;
+  --radius-s: 2px;
+  --radius-m: 4px;
+  --radius-l: 8px;
+  --radius-xl: 16px;
+  --radius-2xl: 20px;
+  --radius-round: 120px;
+  --radius-container: 16px;
+  --radius-card: 8px;
+  --radius-button: 4px;
+  --radius-input: 4px;
+  --radius-badge: 120px;
+  --radius-tab: 8px;
+  --radius-option: 4px;
+  --radius-image: 4px;
+  --radius-graphic: 4px;
+  
+  
+  /* ===== STROKE TOKENS ===== */
+  
+  --stroke-s: 1px;
+  --stroke-m: 2px;
+  --stroke-l: 4px;
+  --stroke-card: 1px;
+  --stroke-input: 1px;
+  --stroke-button: 1px;
+  --stroke-focus: 2px;
+  --stroke-graphics: 4px;
+  
+  
+  /* ===== SCREEN SIZE TOKENS ===== */
+  
+  --screen-width: 1920px;
+  --minimal-height: 1080px;
+}
+
+/* ===== UTILITY CLASSES ===== */
+
+/* Surface variants */
+.surface-default {
+  background-color: var(--color-surface-default);
+  color: var(--color-surface-on-default);
+}
+
+.surface-muted {
+  background-color: var(--color-surface-muted);
+  color: var(--color-surface-on-muted);
+}
+
+/* Primary variants */
+.primary-default {
+  background-color: var(--color-primary-default);
+  color: var(--color-primary-on-default);
+}
+
+.primary-muted {
+  background-color: var(--color-primary-muted);
+  color: var(--color-primary-on-muted);
+}
+
+/* Spacing utilities */
+.padding-m {
+  padding: var(--spacing-padding-m);
+}
+
+.gap-xs {
+  gap: var(--spacing-gap-xs);
+}
+
+.gap-m {
+  gap: var(--spacing-gap-m);
+}
+
+/* Border radius utilities */
+.radius-input {
+  border-radius: var(--radius-input);
+}
+
+.radius-button {
+  border-radius: var(--radius-button);
+}
+
+.radius-card {
+  border-radius: var(--radius-card);
+}
+
+/* Button styles using design tokens */
+.btn-radius {
+  border-radius: var(--radius-button);
+}
+
+.btn-padding-default {
+  padding: var(--spacing-padding-button-vert) var(--spacing-padding-button-no-icon);
+}
+
+.btn-padding-icon {
+  padding: var(--spacing-padding-button-vert) var(--spacing-padding-button-icon);
+}
+
+/* Apply design tokens to button elements */
+button,
+.button,
+[role="button"] {
+  border-radius: var(--radius-button);
+}
+
+/* Apply design tokens to input elements */
+input,
+textarea,
+select {
+  border-radius: var(--radius-input);
+}
+
+/* Apply design tokens to card elements */
+.card,
+[data-card] {
+  border-radius: var(--radius-card);
+}

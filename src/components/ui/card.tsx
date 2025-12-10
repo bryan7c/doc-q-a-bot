@@ -2,14 +2,24 @@ import * as React from "react";
 
 import { cn } from "@/lib/utils";
 
-const Card = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>(({ className, ...props }, ref) => (
-  <div ref={ref} className={cn("rounded-lg border bg-card text-card-foreground shadow-sm", className)} {...props} />
+const Card = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>(({ className, style, ...props }, ref) => (
+  <div 
+    ref={ref} 
+    className={cn("border bg-card text-card-foreground shadow-sm", className)} 
+    style={{ borderRadius: 'var(--radius-card)', ...style }}
+    {...props} 
+  />
 ));
 Card.displayName = "Card";
 
 const CardHeader = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>(
-  ({ className, ...props }, ref) => (
-    <div ref={ref} className={cn("flex flex-col space-y-1.5 p-6", className)} {...props} />
+  ({ className, style, ...props }, ref) => (
+    <div 
+      ref={ref} 
+      className={cn("flex flex-col space-y-1.5", className)} 
+      style={{ padding: 'var(--spacing-padding-card)', ...style }}
+      {...props} 
+    />
   ),
 );
 CardHeader.displayName = "CardHeader";
@@ -29,13 +39,25 @@ const CardDescription = React.forwardRef<HTMLParagraphElement, React.HTMLAttribu
 CardDescription.displayName = "CardDescription";
 
 const CardContent = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>(
-  ({ className, ...props }, ref) => <div ref={ref} className={cn("p-6 pt-0", className)} {...props} />,
+  ({ className, style, ...props }, ref) => (
+    <div 
+      ref={ref} 
+      className={cn("pt-0", className)} 
+      style={{ padding: 'var(--spacing-padding-card)', paddingTop: '0', ...style }}
+      {...props} 
+    />
+  ),
 );
 CardContent.displayName = "CardContent";
 
 const CardFooter = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>(
-  ({ className, ...props }, ref) => (
-    <div ref={ref} className={cn("flex items-center p-6 pt-0", className)} {...props} />
+  ({ className, style, ...props }, ref) => (
+    <div 
+      ref={ref} 
+      className={cn("flex items-center pt-0", className)} 
+      style={{ padding: 'var(--spacing-padding-card)', paddingTop: '0', ...style }}
+      {...props} 
+    />
   ),
 );
 CardFooter.displayName = "CardFooter";

@@ -1,0 +1,209 @@
+{
+  "title": {
+    "1": {
+      "$type": "string",
+      "$value": "A missão credsystem",
+      "$extensions": {
+        "com.figma.type": "string",
+        "com.figma.variableId": "VariableID:1169:4254",
+        "com.figma.scopes": [
+          "ALL_SCOPES"
+        ]
+      }
+    },
+    "2": {
+      "$type": "string",
+      "$value": "A visão credsystem",
+      "$extensions": {
+        "com.figma.type": "string",
+        "com.figma.variableId": "VariableID:1169:4255",
+        "com.figma.scopes": [
+          "ALL_SCOPES"
+        ]
+      }
+    },
+    "3": {
+      "$type": "string",
+      "$value": "O que oferecemos ao público",
+      "$extensions": {
+        "com.figma.type": "string",
+        "com.figma.variableId": "VariableID:1195:4876",
+        "com.figma.scopes": [
+          "ALL_SCOPES"
+        ]
+      }
+    },
+    "4": {
+      "$type": "string",
+      "$value": "Nosso diferencial e entrega de valor",
+      "$extensions": {
+        "com.figma.type": "string",
+        "com.figma.variableId": "VariableID:1195:4881",
+        "com.figma.scopes": [
+          "ALL_SCOPES"
+        ]
+      }
+    },
+    "5": {
+      "$type": "string",
+      "$value": "Valores do colaborador credsystem",
+      "$extensions": {
+        "com.figma.type": "string",
+        "com.figma.variableId": "VariableID:1195:4882",
+        "com.figma.scopes": [
+          "ALL_SCOPES"
+        ]
+      }
+    },
+    "6": {
+      "$type": "string",
+      "$value": "Propósito credsystem",
+      "$extensions": {
+        "com.figma.type": "string",
+        "com.figma.variableId": "VariableID:1195:4883",
+        "com.figma.scopes": [
+          "ALL_SCOPES"
+        ]
+      }
+    }
+  },
+  "subtitle": {
+    "1": {
+      "$type": "string",
+      "$value": "Oferecer soluções simples e inovadoras que fortaleçam o varejo, ampliem oportunidades de consumo e transmitam proximidade e confiança.",
+      "$extensions": {
+        "com.figma.type": "string",
+        "com.figma.variableId": "VariableID:1206:10351",
+        "com.figma.scopes": [
+          "ALL_SCOPES"
+        ]
+      }
+    },
+    "2": {
+      "$type": "string",
+      "$value": "Sermos reconhecidos pelos nossos clientes como a melhor empresa de soluções financeiras para as classes econômicas emergentes.",
+      "$extensions": {
+        "com.figma.type": "string",
+        "com.figma.variableId": "VariableID:1344:3051",
+        "com.figma.scopes": [
+          "ALL_SCOPES"
+        ]
+      }
+    },
+    "3": {
+      "$type": "string",
+      "$value": "Acesso a novas possibilidades de consumo por meio do crédito e busca potencializar o sucesso dos negócios de seus parceiros comerciais.",
+      "$extensions": {
+        "com.figma.type": "string",
+        "com.figma.variableId": "VariableID:1344:3052",
+        "com.figma.scopes": [
+          "ALL_SCOPES"
+        ]
+      }
+    },
+    "4": {
+      "$type": "string",
+      "$value": "Com transparência, simplicidade e proximidade com a realidade dos nossos clientes e lojistas, possibilitamos que as pessoas tenham novas conquistas.",
+      "$extensions": {
+        "com.figma.type": "string",
+        "com.figma.variableId": "VariableID:1344:3053",
+        "com.figma.scopes": [
+          "ALL_SCOPES"
+        ]
+      }
+    },
+    "5": {
+      "$type": "string",
+      "$value": "Transparência, simplicidade e visão de cliente, valorizando o trabalho em equipe e dando sempre o seu melhor.",
+      "$extensions": {
+        "com.figma.type": "string",
+        "com.figma.variableId": "VariableID:1344:3054",
+        "com.figma.scopes": [
+          "ALL_SCOPES"
+        ]
+      }
+    },
+    "6": {
+      "$type": "string",
+      "$value": "Tornar novas conquistas possíveis.",
+      "$extensions": {
+        "com.figma.type": "string",
+        "com.figma.variableId": "VariableID:1344:3055",
+        "com.figma.scopes": [
+          "ALL_SCOPES"
+        ]
+      }
+    }
+  },
+  "body": {
+    "1": {
+      "$type": "string",
+      "$value": "Oferecer soluções simples e inovadoras que fortaleçam o varejo, ampliem oportunidades de consumo e transmitam proximidade e confiança.",
+      "$extensions": {
+        "com.figma.type": "string",
+        "com.figma.variableId": "VariableID:1195:4880",
+        "com.figma.scopes": [
+          "ALL_SCOPES"
+        ]
+      }
+    },
+    "2": {
+      "$type": "string",
+      "$value": "Sermos reconhecidos pelos nossos clientes como a melhor empresa de soluções financeiras para as classes econômicas emergentes.",
+      "$extensions": {
+        "com.figma.type": "string",
+        "com.figma.variableId": "VariableID:1195:4878",
+        "com.figma.scopes": [
+          "ALL_SCOPES"
+        ]
+      }
+    },
+    "3": {
+      "$type": "string",
+      "$value": "Acesso a novas possibilidades de consumo por meio do crédito e busca potencializar o sucesso dos negócios de seus parceiros comerciais.",
+      "$extensions": {
+        "com.figma.type": "string",
+        "com.figma.variableId": "VariableID:1195:4877",
+        "com.figma.scopes": [
+          "ALL_SCOPES"
+        ]
+      }
+    },
+    "4": {
+      "$type": "string",
+      "$value": "Com transparência, simplicidade e proximidade com a realidade dos nossos clientes e lojistas, possibilitamos que as pessoas tenham novas conquistas.",
+      "$extensions": {
+        "com.figma.type": "string",
+        "com.figma.variableId": "VariableID:1195:4885",
+        "com.figma.scopes": [
+          "ALL_SCOPES"
+        ]
+      }
+    },
+    "5": {
+      "$type": "string",
+      "$value": "Transparência, simplicidade e visão de cliente, valorizando o trabalho em equipe e dando sempre o seu melhor.",
+      "$extensions": {
+        "com.figma.type": "string",
+        "com.figma.variableId": "VariableID:1195:4886",
+        "com.figma.scopes": [
+          "ALL_SCOPES"
+        ]
+      }
+    },
+    "6": {
+      "$type": "string",
+      "$value": "Tornar novas conquistas possíveis.",
+      "$extensions": {
+        "com.figma.type": "string",
+        "com.figma.variableId": "VariableID:1195:4887",
+        "com.figma.scopes": [
+          "ALL_SCOPES"
+        ]
+      }
+    }
+  },
+  "$extensions": {
+    "com.figma.modeName": "Mode 1"
+  }
+}

@@ -19,20 +19,33 @@ export const ChatMessage = ({ message }: ChatMessageProps) => {
   return (
     <div
       className={cn(
-        'animate-slide-up flex gap-3 p-4 rounded-lg',
+        'animate-slide-up flex',
         isAssistant ? 'bg-card/50' : 'bg-transparent'
       )}
+      style={{
+        gap: 'var(--spacing-gap-s)',
+        padding: 'var(--spacing-padding-m)',
+        borderRadius: 'var(--radius-l)',
+      }}
     >
       <div
         className={cn(
-          'flex-shrink-0 w-8 h-8 rounded-lg flex items-center justify-center',
+          'flex-shrink-0 w-8 h-8 flex items-center justify-center',
           isAssistant ? 'bg-primary/20 text-primary' : 'bg-secondary text-foreground'
         )}
+        style={{ borderRadius: 'var(--radius-l)' }}
       >
         {isAssistant ? <Bot className="w-4 h-4" /> : <User className="w-4 h-4" />}
       </div>
 
-      <div className="flex-1 space-y-2">
+      <div 
+        className="flex-1"
+        style={{ 
+          display: 'flex',
+          flexDirection: 'column',
+          gap: 'var(--spacing-gap-xs)',
+        }}
+      >
         <div className="text-sm text-muted-foreground">
           {isAssistant ? 'Assistente RAG' : 'Você'}
         </div>
@@ -42,11 +55,19 @@ export const ChatMessage = ({ message }: ChatMessageProps) => {
         </div>
 
         {isAssistant && message.sources && message.sources.length > 0 && (
-          <div className="flex flex-wrap gap-2 pt-2">
+          <div 
+            className="flex flex-wrap pt-2"
+            style={{ gap: 'var(--spacing-gap-xs)' }}
+          >
             {message.sources.map((source, index) => (
               <span
                 key={index}
-                className="inline-flex items-center gap-1 px-2 py-1 text-xs bg-secondary rounded-md text-muted-foreground"
+                className="inline-flex items-center text-xs bg-secondary text-muted-foreground"
+                style={{
+                  gap: 'var(--spacing-gap-4xs)',
+                  padding: 'var(--spacing-padding-xs) var(--spacing-padding-xs)',
+                  borderRadius: 'var(--radius-m)',
+                }}
               >
                 <FileText className="w-3 h-3" />
                 {source}
@@ -56,28 +77,36 @@ export const ChatMessage = ({ message }: ChatMessageProps) => {
         )}
 
         {isAssistant && (
-          <div className="flex items-center gap-3 pt-2">
+          <div 
+            className="flex items-center pt-2"
+            style={{ gap: 'var(--spacing-gap-s)' }}
+          >
             <span className="text-xs text-muted-foreground">Esta resposta foi útil?</span>
-            <div className="flex gap-1">
+            <div 
+              className="flex"
+              style={{ gap: 'var(--spacing-gap-4xs)' }}
+            >
               <button
                 onClick={() => handleRate('positive')}
                 className={cn(
-                  'p-1.5 rounded-md transition-all duration-200',
+                  'p-1.5 transition-all duration-200',
                   message.rating === 'positive'
                     ? 'bg-success/20 text-success'
                     : 'hover:bg-secondary text-muted-foreground hover:text-foreground'
                 )}
+                style={{ borderRadius: 'var(--radius-m)' }}
               >
                 <ThumbsUp className="w-4 h-4" />
               </button>
               <button
                 onClick={() => handleRate('negative')}
                 className={cn(
-                  'p-1.5 rounded-md transition-all duration-200',
+                  'p-1.5 transition-all duration-200',
                   message.rating === 'negative'
                     ? 'bg-destructive/20 text-destructive'
                     : 'hover:bg-secondary text-muted-foreground hover:text-foreground'
                 )}
+                style={{ borderRadius: 'var(--radius-m)' }}
               >
                 <ThumbsDown className="w-4 h-4" />
               </button>

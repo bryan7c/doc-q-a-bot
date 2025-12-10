@@ -16,12 +16,14 @@ export const Sidebar = ({ activeView, onViewChange }: SidebarProps) => {
     <aside className="w-64 h-full bg-card border-r border-border flex flex-col">
       {/* Logo */}
       <div className="p-5 border-b border-border">
-        <div className="flex items-center gap-3">
-          <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-primary to-accent flex items-center justify-center">
-            <BookOpen className="w-5 h-5 text-primary-foreground" />
-          </div>
-          <div>
-            <h1 className="font-bold text-foreground">DocRAG</h1>
+        <div className="flex flex-col items-center gap-1">
+          <img
+            src="/assets/logo.png"
+            alt="Logo"
+            className="h-10 w-auto object-contain"
+          />
+          <div className="text-center">
+            <h1 className="font-bold text-foreground">IAllow</h1>
             <p className="text-xs text-muted-foreground">Chat Inteligente</p>
           </div>
         </div>

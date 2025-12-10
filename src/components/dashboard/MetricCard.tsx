@@ -38,27 +38,36 @@ export const MetricCard = ({
   return (
     <div
       className={cn(
-        'p-5 rounded-xl border transition-all duration-300 hover:scale-[1.02] animate-fade-in',
+        'border transition-all duration-300 hover:scale-[1.02] animate-fade-in',
         variantStyles[variant]
       )}
+      style={{
+        borderRadius: 'var(--radius-card)',
+        padding: 'var(--spacing-padding-l)',
+      }}
     >
-      <div className="flex items-start justify-between mb-3">
+      <div 
+        className="flex items-start justify-between"
+        style={{ marginBottom: 'var(--spacing-gap-s)' }}
+      >
         <div
           className={cn(
-            'w-10 h-10 rounded-lg flex items-center justify-center',
+            'w-10 h-10 flex items-center justify-center',
             iconStyles[variant]
           )}
+          style={{ borderRadius: 'var(--radius-l)' }}
         >
           <Icon className="w-5 h-5" />
         </div>
         {trend && (
           <span
             className={cn(
-              'text-xs font-medium px-2 py-1 rounded-full',
+              'text-xs font-medium px-2 py-1',
               trend.isPositive
                 ? 'bg-success/20 text-success'
                 : 'bg-destructive/20 text-destructive'
             )}
+            style={{ borderRadius: 'var(--radius-badge)' }}
           >
             {trend.isPositive ? '+' : ''}{trend.value}%
           </span>
